@@ -24,17 +24,17 @@ http://scalac.com/
 
 ### Logging
 
-1. 添加 jQuery 库；
+1. 2017.02.03 添加 jQuery 库；
 
 ## CSS
 
 ### Logging
 
-1. 添加 Meyerweb Reset CSS；
+1. 2017.02.03 添加 Meyerweb Reset CSS；
 
 ## HTML
 
 ### Logging
 
-1. 仿虾米音乐，做一个HTML5页面；
+1. 2017.02.04 仿虾米音乐，做一个HTML5页面；
 
