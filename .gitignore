@@ -11,7 +11,7 @@ profile
 #Idea
 betago.iml
 .idea/*
-out/*
+web/WEB-INF/classes/*
 
 
 #Java Noise
