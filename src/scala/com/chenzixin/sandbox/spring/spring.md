@@ -1,4 +1,4 @@
-# Develop Scala with Spring
+# Develop Scala Programs with Spring
 
 ## Scala与Spring：强强联合
 
