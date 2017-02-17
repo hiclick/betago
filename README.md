@@ -73,6 +73,6 @@ http://scalac.com/
 
 #### log
 
-1. 2017.02.17 整理百度搜索手机无广告版；
-2. 制作 Bootstrap + jQuery 版的[跳转计数生成工具](http://scalac.com/static/ivy/dwz/useParam-jQuery.html)；
+1. 2017.02.17 整理[百度搜索](http://www1.pconline.com.cn/api/libs/foundation/index.html)手机无广告版；
+2. 2017.02.17 制作 Bootstrap + jQuery 版的[跳转计数生成工具](http://scalac.com/static/ivy/dwz/useParam-jQuery.html)；
 
