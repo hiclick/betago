@@ -126,7 +126,7 @@
          * JavaScript trim
          * str.replace(/(^\s*)|(\s*$)/g, "")
          */
-        var ahref = server + "?source=" + appKey + "&url_long=" + longUrl.trim();
+        var ahref = server + "?source=" + appKey + "&url_long=" + encodeURIComponent(longUrl.trim());
         alink.attr("href", ahref).text(decodeURIComponent(ahref));
     }
 </script>
