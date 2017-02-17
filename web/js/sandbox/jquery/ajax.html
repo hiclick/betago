@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Ajax</title>
+    <link rel="stylesheet" href="../../../css/component/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/component/bootstrap/dist/css/bootstrap-theme.css">
+    <!--<script type="text/javascript" src="js/library/jquery-1.12.4.js"></script>-->
+    <script type="text/javascript" src="../../library/jquery-3.1.1.js"></script>
+    <!--必须在jQuery之后引入-->
+    <script type="text/javascript" src="../../../css/component/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <h3>jQuery Ajax</h3>
+    <hr>
+    <p>参考文档：</p>
+    <ul>
+        <li><a href="http://api.jquery.com/jQuery.ajax/">jQuery API Docs</a></li>
+        <li><a href="http://www.w3school.com.cn/jquery/ajax_ajax.asp">W3school Tutorials</a></li>
+    </ul>
+</div>
+<div class="container">
+    <input type="text" placeholder="输入" class="form-control" id="normalURL">
+    <br>
+    <input type="text" placeholder="输出" class="form-control" id="iConsole" value="">
+    <br>
+    <button type="submit" class="btn btn-info">Submit Data</button>
+</div>
+<script type="text/javascript">
+    var APPKEY = 3204813213;
+    var server = "http://api.t.sina.com.cn/short_url/shorten.xml";
+    var local_server = "/web/server.html";
+    $(
+
+            jQuery(":submit").click(function () {
+                var long_url = jQuery("#normalURL").val();
+                jQuery.ajax({
+                    method: "POST",
+                    url: server,
+                    data: {source: APPKEY, url_long: long_url},
+                    dataType : 'jsonp',
+                    jsonp:"jsoncallback",
+                    success: function (res) {
+                        console.log(res); // 新浪接口未提供Callback，故无效，服务器端 httpclient 应该可以
+                        //jQuery("#iConsole").val(res);
+                    }
+                });
+            }),
+
+            jQuery(":submit").click(function () {
+                var request = jQuery.ajax({
+                    method: "POST",
+                    url: local_server,
+                    data: {source: APPKEY, url_long: ""}
+                });
+                request.done(function (res) {
+                    var msg = eval("(" + res + ")");
+                    jQuery("#iConsole").val(msg.name);
+                })
+            })
+    )
+</script>
+</body>
+</html>

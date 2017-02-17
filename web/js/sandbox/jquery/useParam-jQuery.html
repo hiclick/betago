@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>跳转计数生成工具</title>
+
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .info {
+            color: blue;
+        }
+        /*love hate*/
+        a:link    {color: #3366cc;}
+        a:visited {color: purple;}
+        a:hover   {color: red; text-decoration: none}
+        a:active  {color: blue;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>跳转计数生成工具</h2>
+    <hr>
+    <div class="form-group">
+        <label for="from">请输入计数器URL：</label>
+        <input type="text" class="form-control" name="from" id="from" placeholder="起始页面">
+    </div>
+</div>
+
+<div class="container">
+    <!--<div class="form-group col-xs-8">-->
+    <div class="form-group">
+        <label for="to">请输入跳转链接：</label>
+        <input type="text" class="form-control" name="to" id="to" placeholder="目标页面">
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                鼠标移动到此链点上，左键测试是否有效，右键从弹出菜单中复制链接
+            </h3>
+        </div>
+        <div class="panel-body">
+            <a id="link" href="http://chenzixin.com" target=_blank class="info">这里将会是生成的链点</a>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="../js/library/jquery-1.12.4.min.js"><\/script>')</script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    //http://learn.jquery.com/using-jquery-core/document-ready/
+    $(document).ready(function(){
+        pageSetup();
+    });
+
+    function pageSetup() {
+        /**
+         * http://www.w3school.com.cn/jquery/event_focus.asp
+         * http://api.jquery.com/focus/
+         */
+        $("#from").focus(function () {
+            $(this).select();
+        });
+
+        /**
+         * http://api.jquery.com/change/
+         * http://www.w3school.com.cn/jquery/event_change.asp
+         * 当元素的值发生改变时，会发生 change 事件。
+         * 该事件仅适用于文本域（text field），以及 textarea 和 select 元素。
+         * change() 函数触发 change 事件，或规定当发生 change 事件时运行的函数。
+         * 当用于 select 元素时，change 事件会在选择某个选项时发生。当用于 text field 或 text area 时，该事件会在元素失去焦点时发生。
+         */
+        $("#from").change(function(){
+            show();
+        });
+
+        $("#to").focus(function () {
+            $(this).select();
+        });
+
+        $("#to").change(function(){
+            show();
+        });
+    }
+
+    function show(){
+        var alink = jQuery("#link");
+        var afrom = jQuery("#from").val();
+        var ato   = jQuery("#to").val();
+        /**
+         * MSDN
+         * https://msdn.microsoft.com/en-us/library/9yzah1fh(v=vs.85).aspx
+         * https://msdn.microsoft.com/en-us/library/xh9be5xc(v=vs.85).aspx
+         * https://msdn.microsoft.com/en-us/library/aeh9cef7(v=vs.85).aspx
+         *
+         * Mozilla Developer
+         * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/escape
+         * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI
+         * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+         *
+         * JavaScript trim
+         * str.replace(/(^\s*)|(\s*$)/g, "")
+         */
+        var ahref = afrom + (/^.*&$/.test(afrom) ? "" : "&") + "url=" + encodeURIComponent(ato.trim());
+        alink.attr("href", ahref).text(ahref);
+    }
+</script>
+</body>
+</html>

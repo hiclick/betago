@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>跳转计数生成工具</title>
+</head>
+<body>
+请输入计数器URL：<br/>
+<textarea name="from" id="from" onfocus="select()" cols="200" rows="5" onpropertychange="show()"
+          oninput="show()"></textarea>
+<br/>
+请输入跳转链接：<br/>
+<textarea name="to" id="to" onfocus="select()" cols="200" rows="5" onpropertychange="show()"
+          oninput="show()"></textarea>
+<br/>
+<a id="link" href="#" target=_blank style="color:red" onmouseover=show()>这里将会是生成的链点</a>
+
+<!--
+<hr>下面可以自动生成有模拟来源的目标页面链点 (目前支持六网的静态部分，包括首页、频道、文章和www1）：
+<br><textarea name=from id=from onfocus=select() cols=80 rows=5>http://</textarea>
+<br>目标页面：
+<br><textarea name=to id=to onfocus=select() cols=80 rows=5>http://</textarea>
+<br>目标页面内容代码，如填，则要求上面的目标页面必须支持POST处理(新功能，测试中)：
+<br><textarea name=code id=code cols=80 rows=5></textarea>
+<p><a id=link href="#" target=_blank style="color:red" onmouseover=show()>这里将会是生成的链点</a>
+ -->
+<br/>
+<br/>鼠标移动到此链点上，左键测试是否有效，右键从弹出菜单中复制链接
+<script type="text/javascript">
+    function show() {
+        var a = document.getElementById("link");
+        a.href = document.getElementById("from").value + (/^.*&$/.test(document.getElementById("from").value) ? '' : '&') +
+                "url=" +
+                escape(document.getElementById("to").value.replace(/(^\s*)|(\s*$)/g, ""));
+        a.innerHTML = a.href.replace(/</g, "&lt;");
+    }
+</script>
+</body>
+</html>
