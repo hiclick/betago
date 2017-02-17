@@ -49,7 +49,7 @@ http://scalac.com/
 #### log
 
 1. 2017.02.03 添加 jQuery 库；
-2. 2017.02.16 学习 Bootstrap 简单布局，新浪微博组件，Lorem Ipsum；
+2. 2017.02.16 学习 Bootstrap 简单布局，[新浪微博组件](http://scalac.com/static/ivy/dwz/index.html)，Lorem Ipsum；
 3. 2017.02.17 学习 jQuery Ajax，[新浪微博短链接服务](http://scalac.com/static/ivy/dwz/tcn.html)；
 
 ### CSS
