@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>新浪短链接生成工具</title>
+
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        #shortUrl {
+            display: none;
+        }
+
+        /*love hate*/
+        a:link {
+            color: #3366cc;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+            text-decoration: none
+        }
+
+        a:active {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>新浪短链接生成工具</h2>
+    <hr>
+    <!--http://getbootstrap.com/css/#forms-->
+    <div class="form-horizontal">
+        <div class="form-group col-sm-8">
+            <label for="longUrl">请输入要压缩的链接：</label>
+            <input type="text" class="form-control" value="http://scalac.com/index.php?title=夏目友人帐" name="longUrl"
+                   id="longUrl" placeholder="长链接">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <button type="submit" class="btn btn-default">提交数据</button>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="text" class="form-control" name="shortUrl"
+                   id="shortUrl" placeholder="短链接">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <hr>
+    <footer>
+        <p>&copy; 2017 Christen, Inc.</p>
+    </footer>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="../js/library/jquery-1.12.4.min.js"><\/script>')</script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        pageSetup();
+        handleLongUrl();
+    });
+
+    function pageSetup() {
+        $("#longUrl").focus(function () {
+            $(this).select();
+        });
+
+        $("#longUrl").blur(function () {
+            var url = $(this).val();
+            $(this).val(decodeURIComponent(url));
+        });
+
+        $("#shortUrl").focus(function () {
+            $(this).select();
+        });
+    }
+
+    function handleLongUrl() {
+        $(":submit").click(function () {
+            var longUrl = $("#longUrl").val();
+            $.ajax({
+                method: "POST",
+                //url: "shorten.php",
+                url: "/betago/src/php/weibo/shorten.php",
+                data: {"url_long": longUrl},
+                success: function (res) {
+                    $("#shortUrl").show().val(res);
+                    //$("#longUrl").val(decodeURIComponent(longUrl));
+                }
+
+            });
+        });
+    }
+</script>
+</body>
+</html>

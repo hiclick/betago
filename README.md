@@ -36,6 +36,48 @@ http://scalac.com/
 
 1. 2017.02.03 建立工程，并在 GitHub 托管代码；
 
+### PHP
+
+#### info
+
+WordPress、MediaWiki 均为[PHP](http://scalac.com/index.php?title=PHP)编写，借此机会学习基本的语法、函数，以能编写简单的PHP脚本为目标。
+
+#### log
+
+1. 2017.02.18 在src目录建立php文件夹，下载Intellij IDEA PHP 插件；
+2. 学习调用新浪微博短链接服务接口；
+3. 为Wamp配置alias，可在本地调试PHP程序；
+
+```
+Alias /betago "C:/Dev/idea-projects/betago/"
+
+<Directory "C:/Dev/idea-projects/betago/">
+	Options Indexes FollowSymLinks MultiViews
+  AllowOverride all
+  <ifDefine APACHE24>
+		Require local
+	</ifDefine>
+	<ifDefine !APACHE24>
+		Order Deny,Allow
+    Deny from all
+    Allow from localhost ::1 127.0.0.1
+	</ifDefine>
+</Directory>
+```
+
+### Python
+
+#### info
+
+Python 的确是很好的语言，很优雅，有个性，功能强大。
+
+Life's pathetic, let's Pythonic.
+
+#### log
+
+1. 2017.02.18 在src目录建立python文件夹，下载Intellij IDEA Python 插件；
+2. 配置Python运行时环境，可跑简单的脚本；
+
 ### JavaSCript
 
 #### info
@@ -51,18 +93,21 @@ http://scalac.com/
 1. 2017.02.03 添加 jQuery 库；
 2. 2017.02.16 学习 Bootstrap 简单布局，[新浪微博组件](http://scalac.com/static/ivy/dwz/index.html)，Lorem Ipsum；
 3. 2017.02.17 学习 jQuery Ajax，[新浪微博短链接服务](http://scalac.com/static/ivy/dwz/tcn.html)；
+4. 2017.02.18 升级短链接服务至[正式版](http://scalac.com/static/ivy/dwz/tcn-pro.html)，服务器端语言PHP；
 
 ### CSS
 
 #### info
 
+* Bootstrap
 * Less
 * Sass
 * Foundation
 
 #### log
 
-1. 2017.02.03 添加 Meyerweb Reset CSS；
+1. 2017.02.03 添加 [Meyerweb Reset CSS](http://meyerweb.com/eric/tools/css/reset/)；
+2. 2017.02.18 学习 Bootstrap [表单布局](http://getbootstrap.com/css/#forms)；
 
 ### HTML
 
