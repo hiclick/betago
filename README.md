@@ -45,8 +45,9 @@ WordPress、MediaWiki 均为[PHP](http://scalac.com/index.php?title=PHP)编写�
 #### log
 
 1. 2017.02.18 在src目录建立php文件夹，下载Intellij IDEA PHP 插件；
-2. 学习调用新浪微博短链接服务接口；
-3. 为Wamp配置alias，可在本地调试PHP程序；
+2. 2017.02.18 学习调用新浪微博短链接服务接口；
+3. 2017.02.18 为Wamp配置alias，可在本地调试PHP程序；
+4. 2017.02.19 完善 PHP 相册，按作者的建议，实现了完美的权限控制；
 
 ```
 Alias /betago "C:/Dev/idea-projects/betago/"
@@ -76,7 +77,7 @@ Life's pathetic, let's Pythonic.
 #### log
 
 1. 2017.02.18 在src目录建立python文件夹，下载Intellij IDEA Python 插件；
-2. 配置Python运行时环境，可跑简单的脚本；
+2. 2017.02.18 配置Python运行时环境，可跑简单的脚本；
 
 ### JavaSCript
 
@@ -94,6 +95,7 @@ Life's pathetic, let's Pythonic.
 2. 2017.02.16 学习 Bootstrap 简单布局，[新浪微博组件](http://scalac.com/static/ivy/dwz/index.html)，Lorem Ipsum；
 3. 2017.02.17 学习 jQuery Ajax，[新浪微博短链接服务](http://scalac.com/static/ivy/dwz/tcn.html)；
 4. 2017.02.18 升级短链接服务至[正式版](http://scalac.com/static/ivy/dwz/tcn-pro.html)，服务器端语言PHP；
+5. 2017.02.19 进一步完善短链接服务，添加客户端验证，学习正则表达式；
 
 ### CSS
 

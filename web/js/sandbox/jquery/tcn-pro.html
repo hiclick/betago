@@ -20,7 +20,13 @@
 
     <style type="text/css">
         #shortUrl {
-            display: none;
+            /*display: none;*/
+            visibility: hidden;
+        }
+
+        .warn {
+            color: #ff0000;
+            visibility: visible !important;
         }
 
         /*love hate*/
@@ -77,6 +83,7 @@
 <script>window.jQuery || document.write('<script src="../js/library/jquery-1.12.4.min.js"><\/script>')</script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -101,18 +108,33 @@
 
     function handleLongUrl() {
         $(":submit").click(function () {
-            var longUrl = $("#longUrl").val();
-            $.ajax({
-                method: "POST",
-                //url: "shorten.php",
-                url: "/betago/src/php/weibo/shorten.php",
-                data: {"url_long": longUrl},
-                success: function (res) {
-                    $("#shortUrl").show().val(res);
-                    //$("#longUrl").val(decodeURIComponent(longUrl));
-                }
+            var longUrl = $("#longUrl").val().trim();
+            // http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp
+            var regexp = /(ftp|http|https):\/\/(\w+:?\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@\-\/]))?/;
+            var isHTTPUrl = regexp.test(longUrl);
+            // http://www.w3school.com.cn/js/js_comparisons.asp
+            if (!_.isEmpty(longUrl) && isHTTPUrl) {
+                //console.log("server");
+                $.ajax({
+                    method: "POST",
+                    url: "shorten.php",
+                    //url: "/betago/src/php/weibo/shorten.php",
+                    data: {"url_long": longUrl},
+                    success: function (res) {
+                        if (!_.isEmpty(res)) {
+                            // http://www.w3school.com.cn/jquery/css_css.asp
+                            $("#shortUrl").val(res).removeClass("warn").css("visibility", "visible");
+                        } else {
+                            $("#shortUrl").val("压缩失败，请检查链接，或稍后再试").addClass("warn");
+                        }
+                    }
+                });
+            } else {
+                //console.log("client");
+                // http://www.w3school.com.cn/jquery/attributes_addclass.asp
+                $("#shortUrl").val("请输入正确的长链接").addClass("warn");
+            }
 
-            });
         });
     }
 </script>
