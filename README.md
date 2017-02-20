@@ -78,6 +78,18 @@ Life's pathetic, let's Pythonic.
 
 1. 2017.02.18 在src目录建立python文件夹，下载Intellij IDEA Python 插件；
 2. 2017.02.18 配置Python运行时环境，可跑简单的脚本；
+3. 2017.02.20 受Ruby模块的启发，升级Python目录为模块，更正式了，也同样升级PHP；
+
+### Ruby
+
+#### info
+
+一直纠结有了Python之后，还要建Ruby模块吗？最好的解脱，就是动手。
+
+#### log
+
+1. 2017.02.20 安装RubyMine插件，但编辑器一直警告，无法读取rubystubs；
+2. 2017.02.20 升级为项目模块，警告消失，太开心了；
 
 ### JavaSCript
 

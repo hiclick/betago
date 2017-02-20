@@ -9,7 +9,7 @@
 profile
 
 #Idea
-betago.iml
+*.iml
 .idea/*
 web/WEB-INF/classes/*
 
