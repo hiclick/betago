@@ -7,3 +7,5 @@ p.name = 'Christen'
 p.age = 36
 puts p.name
 puts p.age
+
+# https://www.zhihu.com/question/19552194
