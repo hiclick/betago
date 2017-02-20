@@ -13,6 +13,5 @@ profile
 .idea/*
 web/WEB-INF/classes/*
 
-
 #Java Noise
 *.class
