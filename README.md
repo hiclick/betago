@@ -84,7 +84,7 @@ Life's pathetic, let's Pythonic.
 
 #### info
 
-一直纠结有了Python之后，还要建Ruby模块吗？最好的解脱，就是动手。
+一直纠结有了Python之后，还要建Ruby模块吗？但最好的解脱，就是动手。
 
 #### log
 
