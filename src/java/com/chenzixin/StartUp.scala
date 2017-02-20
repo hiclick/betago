@@ -9,9 +9,8 @@ import org.apache.commons.math3.stat.StatUtils
   */
 object StartUp {
   def main(args: Array[String]) {
-    def factorial(x: BigInt): BigInt = (BigInt(1) to x).reduce(_ * _)
-    println(factorial(20))
 
+    val startTime: Long = System.currentTimeMillis
     val name: String = ""
 
     val user: User = new User
@@ -24,5 +23,8 @@ object StartUp {
     println(user)
     println(StringUtils.isBlank(user.getName))
     println(StatUtils.max(dArray))
+
+    val endTime: Long = System.currentTimeMillis
+    println("程序运行时间：" + (endTime - startTime) + "ms")
   }
 }

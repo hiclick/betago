@@ -9,6 +9,7 @@ import org.apache.commons.math3.stat.StatUtils;
  */
 public class Main {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
 
         String name = "";
 
@@ -16,11 +17,13 @@ public class Main {
         user.setName("Christen");
         user.setAge(36);
 
-        double[] dArray = { 1.2, 3.4, 5.6, 7.8, 9.0};
+        double[] dArray = {1.2, 3.4, 5.6, 7.8, 9.0};
 
         System.out.println(StringUtils.isBlank(name));
         System.out.println(user);
         System.out.println(StringUtils.isBlank(user.getName()));
         System.out.println(StatUtils.max(dArray));
+        long endTime = System.currentTimeMillis();
+        System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
     }
 }
