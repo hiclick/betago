@@ -49,7 +49,7 @@ WordPress、MediaWiki 均为[PHP](http://scalac.com/index.php?title=PHP)编写�
 3. 2017.02.18 为Wamp配置alias，可在本地调试PHP程序；
 4. 2017.02.19 完善 PHP 相册，按作者的建议，实现了完美的权限控制；
 
-```
+```html
 Alias /betago "C:/Dev/idea-projects/betago/"
 
 <Directory "C:/Dev/idea-projects/betago/">
